@@ -14,6 +14,7 @@ type User struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
 	Mobile    int64  `json:"MobileNumber"`
+	Email     string `json:"Email"`
 }
 
 func main() {
@@ -21,8 +22,8 @@ func main() {
 
 	router.HandleFunc("/", HomePageHandler).Methods(http.MethodGet)
 	router.HandleFunc("/Signup", SignUpHandler).Methods(http.MethodPost)
-	fmt.Println("Server at 8080")
-	http.ListenAndServe(":8080", router)
+	fmt.Println("Server at 8000")
+	http.ListenAndServe(":8000", router)
 }
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 	SearchKey := r.URL.Query().Get("q")
